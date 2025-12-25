@@ -2,17 +2,26 @@
   "name": "bun-backend",
   "module": "src/index.ts",
   "type": "module",
-  "scripts": {
-    "dev": "bunx wrangler dev",
-    "deploy": "bunx wrangler deploy"
+   "scripts": {
+    "dev": "bunx wrangler dev --port 3000",
+    "deploy": "bunx wrangler deploy",
+
+    "prisma:gen": "bunx prisma generate",
+
+    "db:apply": "bunx wrangler d1 migrations apply dinamika --local",
+    "db:apply-prod": "bunx wrangler d1 migrations apply dinamika --remote",
+
+    "db:new": "bun run scripts/db-new.ts"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251225.0",
     "@types/bun": "^1.3.5"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
+    "@prisma/client": "^7.2.0",
     "dotenv": "^17.2.3",
     "hono": "^4.11.1",
     "zod": "^4.2.1"

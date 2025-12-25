@@ -1,14 +1,23 @@
 {
-  // "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "bun-backend",
   "main": "src/worker.ts",
   "compatibility_date": "2025-12-01",
+
   "dev": {
     "port": 3000,
     "host": "localhost"
   },
+
   "vars": {
     "NODE_ENV": "development",
     "APP_NAME": "bun-backend"
-  }
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dinamika",
+      "database_id": "c95529e4-5410-4548-99f5-cba53051a616"
+    }
+  ]
 }
