@@ -1,0 +1,14 @@
+{
+  // "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bun-backend",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-12-01",
+  "dev": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "vars": {
+    "NODE_ENV": "development",
+    "APP_NAME": "bun-backend"
+  }
+}

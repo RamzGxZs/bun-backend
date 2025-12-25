@@ -1,8 +1,13 @@
 import { z } from 'zod'
+import type { Context } from 'hono'
 
-const envSchema = z.object({
-  PORT: z.string().default('3000'),
-  NODE_ENV: z.enum(['development', 'production']),
+export const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'production']).default('development'),
+  APP_NAME: z.string().default('bun-backend')
 })
 
-export const env = envSchema.parse(process.env)
+export type Env = z.infer<typeof envSchema>
+
+export function getEnv(c: Context): Env {
+  return envSchema.parse((c as any).env)
+}
